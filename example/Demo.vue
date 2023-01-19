@@ -176,12 +176,25 @@
     </div> -->
 
     <div class="example">
-     <div>{{ mydate }}</div>
+     <div>{{ mydate }}/ bd==>{{ bd }}</div>
+      <datepicker
+        :placeholder="placeh"
+        v-model="mydate"
+        :bd="bd"
+        :language="languages[language]"
+        format="d-MMM-yyyy">
+      </datepicker>
       <datepicker
         :placeholder="placeh"
         v-model="mydate"
         :language="languages[language]"
-        format="d MMMM yyyy">
+        format="d-MM-yy">
+      </datepicker>
+      <datepicker
+        :placeholder="placeh"
+        v-model="mydate"
+        :language="languages[language]"
+        format="d-MMMM-yyyy">
       </datepicker>
       <!-- <code>
           &lt;datepicker :language="languages.{{ language }}"&gt;&lt;/datepicker&gt;
@@ -273,6 +286,7 @@ export default {
       format: 'd MMMM yyyy',
       disabledDates: {},
       openDate: null,
+      bd: true,
       disabledFn: {
         customPredictor (date) {
           if (date.getDate() % 3 === 0) {

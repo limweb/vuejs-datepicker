@@ -22,13 +22,13 @@
       :required="required"
       :bootstrapStyling="bootstrapStyling"
       :use-utc="useUtc"
+      :bd="bd"
       @showCalendar="showCalendar"
       @closeCalendar="close"
       @typedDate="setTypedDate"
       @clearDate="clearDate">
       <slot name="afterDateInput" slot="afterDateInput"></slot>
     </date-input>
-
 
     <!-- Day View -->
     <picker-day
@@ -48,6 +48,7 @@
       :mondayFirst="mondayFirst"
       :dayCellContent="dayCellContent"
       :use-utc="useUtc"
+      :bd="bd"
       @changedMonth="handleChangedMonthFromDayPicker"
       @selectDate="selectDate"
       @showMonthCalendar="showMonthCalendar"
@@ -68,6 +69,7 @@
       :translation="translation"
       :isRtl="isRtl"
       :use-utc="useUtc"
+      :bd="bd"
       @selectMonth="selectMonth"
       @showYearCalendar="showYearCalendar"
       @changedYear="setPageDate">
@@ -78,6 +80,7 @@
     <picker-year
       v-if="allowedToShowView('year')"
       :pageDate="pageDate"
+      :bd="bd"
       :selectedDate="selectedDate"
       :showYearView="showYearView"
       :allowedToShowView="allowedToShowView"
@@ -146,6 +149,7 @@ export default {
     required: Boolean,
     typeable: Boolean,
     useUtc: Boolean,
+    bd: Boolean,
     minimumView: {
       type: String,
       default: 'day'

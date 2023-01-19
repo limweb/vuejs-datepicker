@@ -68,7 +68,8 @@ export default {
     required: Boolean,
     typeable: Boolean,
     bootstrapStyling: Boolean,
-    useUtc: Boolean
+    useUtc: Boolean,
+    bd: Boolean
   },
   data () {
     const constructedDateUtils = makeDateUtils(this.useUtc)
@@ -87,16 +88,9 @@ export default {
         return this.typedDate
       }
 
-      // return typeof this.format === 'function'
-      //   ? this.format(this.selectedDate)
-      //   : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
-
-      if(typeof this.format === 'function'){
-        this.format(this.selectedDate)
-      } else {
-        let ddd = this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
-        return ddd;
-      }
+      return typeof this.format === 'function'
+        ? this.format(this.selectedDate)
+        : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation, this.bd)
     },
 
     computedInputClass () {

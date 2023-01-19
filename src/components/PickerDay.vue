@@ -6,7 +6,7 @@
         @click="isRtl ? nextMonth() : previousMonth()"
         class="prev"
         :class="{'disabled': isLeftNavDisabled}">&lt;</span>
-      <span class="day__month_btn" @click="showMonthCalendar" :class="allowedToShowView('month') ? 'up' : ''">{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : (+currYearName+543) }}</span>
+      <span class="day__month_btn" @click="showMonthCalendar" :class="allowedToShowView('month') ? 'up' : ''">{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : ( +currYearName + (this.bd ? 543: 0 )) }}</span>
       <span
         @click="isRtl ? previousMonth() : nextMonth()"
         class="next"
@@ -47,7 +47,8 @@ export default {
     translation: Object,
     isRtl: Boolean,
     mondayFirst: Boolean,
-    useUtc: Boolean
+    useUtc: Boolean,
+    bd: Boolean
   },
   data () {
     const constructedDateUtils = makeDateUtils(this.useUtc)

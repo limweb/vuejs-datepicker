@@ -7,15 +7,22 @@
 
 A datepicker Vue component. Compatible with Vue 2.x
 
-- [Demo](#demo)
-- [Install](#install)
-- [Usage](#usage)
-- [Date Formatting](#date-formatting)
-- [Props](#available-props)
-- [Events](#events)
-- [Disabled dates](#disabled-dates)
-- [Highlighted dates](#highlighted-dates)
-- [Translations](#translations)
+- [Datepicker](#datepicker)
+  - [Demo](#demo)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Available props](#available-props)
+  - [Events](#events)
+  - [Date formatting](#date-formatting)
+      - [String formatter](#string-formatter)
+      - [Function formatter](#function-formatter)
+  - [Disabled Dates](#disabled-dates)
+  - [Highlighted Dates](#highlighted-dates)
+  - [Slots](#slots)
+      - [beforeCalendarHeader](#beforecalendarheader)
+      - [afterDateInput](#afterdateinput)
+  - [Translations](#translations)
+    - [How to apply language](#how-to-apply-language)
 
 NB. Vue 1.x was supported up to version v0.9.9. If you want to use this component with Vue 1.x you can install with `npm install vuejs-datepicker@0.9.9`
 
@@ -65,15 +72,15 @@ const app = new Vue({
 <div id="app">
   <vuejs-datepicker :language="fr"></vuejs-datepicker>
 </div>
-<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
 <script src="https://unpkg.com/vuejs-datepicker"></script>
-<script src="https://unpkg.com/vuejs-datepicker/dist/locale/translations/fr.js"></script>
+<script src="https://unpkg.com/vuejs-datepicker@1.6.2/dist/locale/translations/th.js"></script>
 <script>
 const app = new Vue({
   el: '#app',
   data() {
     return {
-      fr: vdp_translation_fr.js
+      th: vdp_translation_th.js
     }
   },
   components: {

@@ -5,6 +5,7 @@ const utils = {
    * @type {Boolean}
    */
   useUtc: false,
+  bd: false,
   /**
    * Returns the full year, using UTC or not
    * @param {Date} date
@@ -197,11 +198,12 @@ const utils = {
    * @param {Date}
    * @param {String}
    * @param {Object}
+   * @param {Boolean}
    * @return {String}
    */
-  formatDate (date, format, translation) {
+  formatDate (date, format, translation, bd = false) {
     translation = (!translation) ? en : translation
-    let year = +this.getFullYear(date)+543
+    let year = +this.getFullYear(date) + (bd ? 543 : 0)
     let month = this.getMonth(date) + 1
     let day = this.getDate(date)
     let str = format

@@ -1,0 +1,22 @@
+<div id="app">
+    <vuejs-datepicker style="height:80px;" :bd="bd" :language="th" :placeholder="placeholder" format="d MMMM yyyy" > </vuejs-datepicker></vuejs-datepicker>
+  </div>
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+  <!-- <script src="https://unpkg.com/vuejs-datepicker"></script> -->
+  <script src="./vuejs-datepicker.min.js"></script>
+  <script src="https://unpkg.com/vuejs-datepicker@1.6.2/dist/locale/translations/th.js"></script>
+  <script>
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        th: vdp_translation_th.js,
+        bd: true,
+        placeholder:'วว-ดด-ปปปป'
+      }
+    },
+    components: {
+        vuejsDatepicker
+    }
+  })
+  </script>

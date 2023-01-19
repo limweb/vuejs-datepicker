@@ -33,7 +33,8 @@ export default {
     translation: Object,
     isRtl: Boolean,
     allowedToShowView: Function,
-    useUtc: Boolean
+    useUtc: Boolean,
+    bd: Boolean
   },
   data () {
     const constructedDateUtils = makeDateUtils(this.useUtc)
@@ -66,7 +67,7 @@ export default {
      */
     pageYearName () {
       const yearSuffix = this.translation.yearSuffix
-      return `${ Number(this.utils.getFullYear(this.pageDate)+yearSuffix)+543}`
+      return `${Number(this.utils.getFullYear(this.pageDate) + yearSuffix) + (this.bd ? 543 : 0)}`
     },
     /**
      * Is the left hand navigation disabled
