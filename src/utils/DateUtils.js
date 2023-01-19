@@ -201,7 +201,7 @@ const utils = {
    */
   formatDate (date, format, translation) {
     translation = (!translation) ? en : translation
-    let year = this.getFullYear(date)
+    let year = +this.getFullYear(date)+543
     let month = this.getMonth(date) + 1
     let day = this.getDate(date)
     let str = format

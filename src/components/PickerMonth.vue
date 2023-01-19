@@ -66,7 +66,7 @@ export default {
      */
     pageYearName () {
       const yearSuffix = this.translation.yearSuffix
-      return `${this.utils.getFullYear(this.pageDate)}${yearSuffix}`
+      return `${ Number(this.utils.getFullYear(this.pageDate)+yearSuffix)+543}`
     },
     /**
      * Is the left hand navigation disabled

@@ -47,7 +47,7 @@ export default {
         : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes())
       for (let i = 0; i < 10; i++) {
         years.push({
-          year: this.utils.getFullYear(dObj),
+          year: this.utils.getFullYear(dObj)+543,
           timestamp: dObj.getTime(),
           isSelected: this.isSelectedYear(dObj),
           isDisabled: this.isDisabledYear(dObj)
@@ -60,7 +60,7 @@ export default {
      * @return {String}
      */
     getPageDecade () {
-      const decadeStart = Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10
+      const decadeStart = (Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10) + 543
       const decadeEnd = decadeStart + 9
       const yearSuffix = this.translation.yearSuffix
       return `${decadeStart} - ${decadeEnd}${yearSuffix}`

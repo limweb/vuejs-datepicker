@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Datepicker Examples</h1>
-    <div class="example">
+    <!-- <div class="example">
       <h3>Default datepicker...</h3>
       <datepicker placeholder="Select Date" />
       <code>
@@ -173,25 +173,28 @@
         </div>
         <pre>openDate: {{ openDate }}</pre>
       </div>
-    </div>
+    </div> -->
 
     <div class="example">
-      <h3>Translations</h3>
-      <h5>{{ languages[language].language }} datepicker</h5>
-
-      <datepicker :language="languages[language]" format="d MMMM yyyy"></datepicker>
-      <code>
+     <div>{{ mydate }}</div>
+      <datepicker
+        :placeholder="placeh"
+        v-model="mydate"
+        :language="languages[language]"
+        format="d MMMM yyyy">
+      </datepicker>
+      <!-- <code>
           &lt;datepicker :language="languages.{{ language }}"&gt;&lt;/datepicker&gt;
-      </code>
-      <div class="settings">
+      </code> -->
+      <!-- <div class="settings">
         <h5>Settings</h5>
         <select v-model="language">
           <option :value="key" v-for="(language, key) in languages" :key="key">{{ language.language }}</option>
         </select>
-      </div>
+      </div> -->
     </div>
 
-    <div class="example">
+    <!-- <div class="example">
       <h3>Inline datepicker</h3>
       <datepicker :inline="true"></datepicker>
       <code>
@@ -244,7 +247,7 @@
       <code>
         &lt;datepicker :minimumView="'month'" :maximumView="'year'" :initialView="'year'"&gt;&lt;/datepicker&gt;
       </code>
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -254,7 +257,7 @@ import Datepicker from '../src/components/Datepicker.vue'
 import * as lang from '../src/locale/index.js'
 
 const state = {
-  date1: new Date()
+  date1: new Date(),
 }
 
 export default {
@@ -264,6 +267,8 @@ export default {
   },
   data () {
     return {
+      mydate: '2023-01-19 11:11:00',
+      placeh:'วว-ดด-ปปปป',
       styleInput: null,
       format: 'd MMMM yyyy',
       disabledDates: {},
@@ -287,7 +292,7 @@ export default {
       state: state,
       vModelExample: null,
       languages: lang,
-      language: 'en'
+      language: 'th'
     }
   },
   computed: {

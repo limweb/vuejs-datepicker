@@ -6,7 +6,7 @@
         @click="isRtl ? nextMonth() : previousMonth()"
         class="prev"
         :class="{'disabled': isLeftNavDisabled}">&lt;</span>
-      <span class="day__month_btn" @click="showMonthCalendar" :class="allowedToShowView('month') ? 'up' : ''">{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : currYearName }}</span>
+      <span class="day__month_btn" @click="showMonthCalendar" :class="allowedToShowView('month') ? 'up' : ''">{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : (+currYearName+543) }}</span>
       <span
         @click="isRtl ? previousMonth() : nextMonth()"
         class="next"

@@ -1,13 +1,19 @@
 <template>
   <div :class="{'input-group' : bootstrapStyling}">
     <!-- Calendar Button -->
-    <span v-if="calendarButton" class="vdp-datepicker__calendar-button" :class="{'input-group-prepend' : bootstrapStyling}" @click="showCalendar" v-bind:style="{'cursor:not-allowed;' : disabled}">
+    <span v-if="calendarButton"
+      class="vdp-datepicker__calendar-button"
+      :class="{'input-group-prepend' : bootstrapStyling}"
+      @click="showCalendar"
+      v-bind:style="{'cursor:not-allowed;' : disabled}">
+
       <span :class="{'input-group-text' : bootstrapStyling}">
         <i :class="calendarButtonIcon">
           {{ calendarButtonIconContent }}
           <span v-if="!calendarButtonIcon">&hellip;</span>
         </i>
       </span>
+
     </span>
     <!-- Input -->
     <input
@@ -80,9 +86,17 @@ export default {
       if (this.typedDate) {
         return this.typedDate
       }
-      return typeof this.format === 'function'
-        ? this.format(this.selectedDate)
-        : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
+
+      // return typeof this.format === 'function'
+      //   ? this.format(this.selectedDate)
+      //   : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
+
+      if(typeof this.format === 'function'){
+        this.format(this.selectedDate)
+      } else {
+        let ddd = this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
+        return ddd;
+      }
     },
 
     computedInputClass () {
